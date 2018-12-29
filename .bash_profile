@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 
-export PATH="~/Scripts:$PATH"
+export PATH="~/.scripts:$PATH"
 export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="firefox"
