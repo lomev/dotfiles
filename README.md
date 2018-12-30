@@ -1,6 +1,6 @@
 # Software I use with this config
 
-- dwm (you can find my fork in diffrent repo)
+- dwm
 
 I have diffrent repository on my GitHub, where you can find my fork of it.
 
