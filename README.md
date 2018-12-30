@@ -1,8 +1,8 @@
-# Software I use with this config
+## Software I use with this config
 
-- dwm (you can find my fork in diffrent repo)
+- dwm
 
-I have diffrent repository on my GitHub, where you can find my fork of it.
+You can find my fork of it [here](https://github.com/reiffarth/dwm).
 
 - st
 
