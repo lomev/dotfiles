@@ -4,6 +4,7 @@ mem=$(free -m | grep '^Mem' | awk '{print $3}')
 news=$(newsboat -x print-unread | awk '{print $1}')
 time=$(date "+%R")
 date=$(date "+%F")
+vol=$(amixer get Master | tail -1 | awk '{print $4}')
 
 read cpu a b c previdle rest < /proc/stat
 prevtotal=$((a+b+c+previdle))
@@ -12,4 +13,4 @@ read cpu a b c idle rest < /proc/stat
 total=$((a+b+c+idle))
 cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
 
-xsetroot -name "NEWS $news · CPU $cpu% · MEM "$mem"MiB · $date · $time"
+xsetroot -name "NEWS $news · CPU $cpu% · MEM "$mem"MiB · VOL $vol · $date · $time"

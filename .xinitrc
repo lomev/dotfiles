@@ -1,6 +1,6 @@
 # Statubar
 while true; do
-   ~/Scripts/statusbar & 
+   ~/.scripts/statusbar & 
    sleep 1m
 done &
 
