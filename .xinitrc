@@ -1,7 +1,7 @@
 # Statubar
 while true; do
    ~/.scripts/statusbar & 
-   sleep 1m
+   sleep 1
 done &
 
 # Wallpaper
