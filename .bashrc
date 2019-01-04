@@ -12,6 +12,6 @@ alias ls='ls --color=auto'
 alias n='nnn'
 alias v='vim'
 
-PS1='\[\e[0;35m\]\w\[\e[0m\] '
+PS1='\e[0;35m\]\w\[\e[0m\] '
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
