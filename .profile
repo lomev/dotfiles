@@ -1,9 +1,9 @@
 #
-# ~/.bash_profile
+# ~/.profile
 #
 
 export PATH="~/.scripts:$PATH"
-export EDITOR="vim"
+export EDITOR="vis"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"

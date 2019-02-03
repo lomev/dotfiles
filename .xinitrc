@@ -10,7 +10,7 @@ done &
 setxkbmap -option caps:escape
 setxkbmap pl
 
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+xrdb -merge ~/.Xresources
 
 while :; do
     ssh-agent dwm
