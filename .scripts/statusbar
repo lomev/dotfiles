@@ -10,6 +10,11 @@ vol() {
     echo  "$vol"
 }
 
+bat() {
+    bat=$(cat /sys/class/power_supply/BAT0/capacity)
+    echo "$bat"
+}
+
 cpu() {
     read cpu a b c previdle rest < /proc/stat
     prevtotal=$((a+b+c+previdle))
@@ -21,4 +26,4 @@ cpu() {
     echo "$cpu"
 }
 
-xsetroot -name "CPU $(cpu)% · MEM $(mem)MiB · VOL $(vol) · $(date "+%R")"
+xsetroot -name "CPU $(cpu)% · MEM $(mem)MiB · BAT $(bat)% · VOL $(vol) · $(date "+%R")"
