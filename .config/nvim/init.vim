@@ -2,7 +2,7 @@ syntax on
 filetype plugin on
 filetype indent on
 
-call plug#begin('~/.vim/plugins')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'junegunn/goyo.vim'
 
