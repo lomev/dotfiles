@@ -8,8 +8,8 @@ down() {
     amixer set Master 5%- unmute >/dev/null 2>&1
 }
 
-if [[ $1 = "up" ]]; then
+if [ $1 == "up" ]; then
     up
-elif [[ $1 = "down" ]]; then
+elif [ $1 == "down" ]; then
     down
 fi

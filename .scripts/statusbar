@@ -1,5 +1,14 @@
 #!/usr/bin/bash
 
+net() {
+    net=$(cat /sys/class/net/wlp3s0/operstate)
+    if [ $net == "up" ]; then
+	echo "UP"
+    elif [ $net == "down" ]; then
+	echo "DOWN"
+    fi
+}
+
 music() {
     track=$(mpc current)
     [[ -n $track ]] && echo "$track ·"
@@ -31,4 +40,4 @@ cpu() {
     echo "$cpu"
 }
 
-xsetroot -name "$(music) CPU $(cpu)% · MEM $(mem)MiB · BAT $(bat)% · VOL $(vol) · $(date "+%R")"
+xsetroot -name "$(music) CPU $(cpu)% · MEM $(mem)MiB · BAT $(bat)% · VOL $(vol) · NET $(net) · $(date "+%R")"
