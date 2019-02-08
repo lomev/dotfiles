@@ -1,10 +1,5 @@
 [ -f $HOME/.Xresources ] && xrdb -merge $HOME/.Xresources
 
-# Start WM
-while true; do
-    exec dwm >/dev/null 2>&1 
-done
-
 # Statubar
 while true; do
    ~/.scripts/statusbar & 
@@ -12,8 +7,14 @@ while true; do
 done &
 
 # Wallpaper
-~/.fehbg &
+$HOME/.fehbg &
 
 # Set keyboard layout
 setxkbmap -option caps:escape
 setxkbmap pl
+
+# Start WM
+while true; do
+   # No log output
+   dwm >/dev/null 2>&1 
+done
