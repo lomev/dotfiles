@@ -1,0 +1,11 @@
+auto-reload yes
+
+# Vi-like keybindings
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+bind-key d pagedown
+bind-key u pageup
+bind-key G end
+bind-key g home
