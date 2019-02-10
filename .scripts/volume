@@ -1,11 +1,11 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 up() {
-    amixer set Master 5%+ unmute >/dev/null 2>&1
+    amixer set Master 5+ unmute>/dev/null
 }
 
 down() {
-    amixer set Master 5%- unmute >/dev/null 2>&1
+    amixer set Master 5- unmute>/dev/null
 }
 
 if [ $1 == "up" ]; then
