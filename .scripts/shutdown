@@ -1,0 +1,10 @@
+#!/bin/bash
+
+action=$(printf "Shutdown%s\nReboot" | dmenu -p "Take action: ")
+
+if [ $action == 'Shutdown' ]; then
+	sudo shutdown -h now
+elif [ $action == 'Reboot' ]; then
+	sudo shutdown -r now
+fi
+    
