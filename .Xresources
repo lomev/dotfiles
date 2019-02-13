@@ -1,5 +1,5 @@
 ! font
-*.font:         Droid Sans Mono-11;
+*.font:         Droid Sans Mono-10;
 
 ! black
 *.color0:       #050505
