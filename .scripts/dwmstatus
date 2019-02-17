@@ -1,11 +1,11 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 net() {
     net=$(cat /sys/class/net/wlp3s0/operstate)
     if [ $net == "up" ]; then
-	echo "UP"
+	echo "NET ON"
     elif [ $net == "down" ]; then
-	echo "DOWN"
+	echo "NET OFF"
     fi
 }
 
@@ -16,17 +16,17 @@ music() {
 
 mem() {
     mem=$(free -m | awk '/^Mem:/ {print $3}')
-    echo "$mem"
+    echo "MEM $mem"
 }
 
 vol() {
     vol=$(amixer get Master | awk -F'[][]' 'END{print $2}')
-    echo  "$vol"
+    echo "VOL $vol"
 }
 
 bat() {
     bat=$(cat /sys/class/power_supply/BAT0/capacity)
-    echo "$bat"
+    echo "BAT $bat"
 }
 
 cpu() {
@@ -37,7 +37,12 @@ cpu() {
     total=$((a+b+c+idle))
     cpu=$(( 100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
 
-    echo "$cpu"
+    echo "CPU $cpu"
 }
 
-xsetroot -name "$(music) CPU $(cpu)% · MEM $(mem)MiB · BAT $(bat)% · VOL $(vol) · NET $(net) · $(date "+%R")"
+tme() {
+    tme=$(date "+%R")
+    echo "$tme"
+}
+
+xsetroot -name "$(music) $(cpu)% · $(mem)MiB · $(bat)% · $(vol)% · $(net) · $(tme) "
