@@ -1,13 +1,13 @@
-[ -f $HOME/.Xresources ] && xrdb -merge $HOME/.Xresources
+[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
 # Statubar
 while true; do
-   ~/.scripts/statusbar & 
+   ~/.scripts/dwm_status & 
    sleep 1
 done &
 
 # Wallpaper
-$HOME/.fehbg &
+~/.fehbg
 
 # Set keyboard layout
 setxkbmap -option caps:escape
