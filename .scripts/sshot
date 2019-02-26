@@ -1,0 +1,34 @@
+#!/usr/bin/bash
+
+# Simple script for taking screenshots with different settings using maim
+# Possible usage of this script:
+# sshot (no arguments) - sshot_default
+# sshot clip - sshot_clip
+# sshot win - sshot_win
+
+# Takes screenshot of entire screen and saves it
+sshot_default() {
+    maim ~/pictures/screenshots/$(date +%s).png
+}
+
+# Takes screenshot of selected area to be easily posted in mumble etc.
+sshot_clip() {
+    maim -s | xclip -selection clipbaord -t image/png -o > ~/pictures/screenshots/$(date +%s).png
+}
+
+# Takes screenshot of currently active window
+sshot_win() {
+    maim -i $(xdotool getactivewindow) ~/pictures/$(date +%s).png
+}
+
+[[ $# -gt 1 ]] && exit
+
+if [[ $# == 0 ]]; then
+    sshot_default
+else
+    if [[ $1 == "clip" ]]; then
+        sshot_clip
+    elif [[ $1 == "win" ]]; then
+        sshot_win
+    fi
+fi
