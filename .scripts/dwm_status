@@ -45,4 +45,4 @@ tme() {
     echo "$tme"
 }
 
-xsetroot -name "$(music) $(cpu)% · $(mem)MiB · $(bat)% · $(vol)% · $(net) · $(tme) "
+xsetroot -name "$(music) $(cpu)% · $(mem)MiB · $(bat)% · $(vol) · $(net) · $(tme) "
