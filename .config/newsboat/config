@@ -1,6 +1,6 @@
 auto-reload yes
 
-# Vi-like keybindings
+# vi-like keybindings
 bind-key j down
 bind-key k up
 bind-key l open
@@ -9,3 +9,6 @@ bind-key d pagedown
 bind-key u pageup
 bind-key G end
 bind-key g home
+bind-key U show-urls
+
+macro m set browser "mpv %u"; open-in-browser ; set browser "w3m %u"
