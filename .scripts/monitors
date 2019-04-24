@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+
+laptop="LVDS1"
+monitor=$(xrandr | awk '/DP1/ {print $2}')
+#monitor=$(xrandr | awk '/VGA1/ {print $2}') # used with projector
+
+if [ $monitor = 'connected' ]; then
+    xrandr --output "$laptop" --auto
+    xrandr --output "$monitor" --auto --primary --mode 1920x1080 --right-of "$laptop"
+
+    # for a projector (mirror)
+    # xrandr --output "$laptop" --mode 1366x768
+    # xrandr --output "$monitor" --auto --mode 1024x768 --same-as "$laptop" 
+
+    # for a projector (two outputs)
+    # xrandr --output "$laptop" --auto
+    # xrandr --output "$monitor" --auto --mode 1024x768 --right-of "$laptop" 
+else
+    xrandr --output "$laptop" --auto --primary --mode 1366x768
+fi
+
+# set a wallpaper just in case it doesn't show properly
+~/.fehbg
+
+# set keyboard layout just in case
+setxkbmap -option caps:escape
+setxkbmap pl
