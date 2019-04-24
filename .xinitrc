@@ -1,8 +1,10 @@
+# Marge Xresources and Xmodmap
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+[ -f ~/.Xmodmap ] && xrdb -merge ~/.Xmodmap
 
 # Statubar
 while true; do
-   ~/.scripts/dwm_status & 
+   ~/.scripts/dwm_status
    sleep 1
 done &
 
@@ -16,5 +18,8 @@ setxkbmap pl
 # Start WM
 while true; do
    # No log output
-   dwm >/dev/null 2>&1 
+   ssh-agent dwm >/dev/null 2>&1 
+   
+   # Output log
+   # ssh-agent dwm >/.dwm/log 2>&1 
 done
