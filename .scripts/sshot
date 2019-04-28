@@ -6,29 +6,35 @@
 # sshot clip - sshot_clip
 # sshot win - sshot_win
 
-# Takes screenshot of entire screen and saves it
+# Takes screenshot of entire screen, saves it and then copy it to clipboard
 sshot_default() {
-    maim ~/pictures/screenshots/$(date +%s).png
+    maim ~/pictures/screenshots/$(date +%s).png | xclip -selection clipboard -t image/png
 }
 
 # Takes screenshot of selected area to be easily posted in mumble etc.
-sshot_clip() {
-    maim -s | xclip -selection clipbaord -t image/png -o > ~/pictures/screenshots/$(date +%s).png
+sshot_area() {
+    maim -s ~/pictures/screenshots/$(date +%s).png | xclip -selection clipbaord -t image/png
 }
 
 # Takes screenshot of currently active window
 sshot_win() {
-    maim -i $(xdotool getactivewindow) ~/pictures/$(date +%s).png
+    maim -i $(xdotool getactivewindow) ~/pictures/screenshots/$(date +%s).png | xclip -selection clipboard -t image/png
 }
 
-[[ $# -gt 1 ]] && exit
+[ $# -gt 1 ] && exit
 
-if [[ $# == 0 ]]; then
+if [ $# == 0 ]; then
     sshot_default
 else
-    if [[ $1 == "clip" ]]; then
-        sshot_clip
-    elif [[ $1 == "win" ]]; then
-        sshot_win
-    fi
+    case $1 in
+        area)
+            sshot_area
+            ;;
+        win)
+            sshot_win
+            ;;
+        *)
+            echo 'Invalid argument.'
+            ;;
+    esac
 fi

@@ -1,10 +1,13 @@
-#!/usr/bin/bash
+#!/bin/sh
 
 laptop="LVDS1"
-monitor=$(xrandr | awk '/DP1/ {print $2}')
-#monitor=$(xrandr | awk '/VGA1/ {print $2}') # used with projector
+monitor="DP2"
+monitor_connection=$(xrandr | awk '/DP2/ {print $2}')
 
-if [ $monitor = 'connected' ]; then
+# monitor="VGA1"
+# monitor_connection=$(xrandr | awk '/VGA1/ {print $2}')
+
+if [ $monitor_connection = 'connected' ]; then
     xrandr --output "$laptop" --auto
     xrandr --output "$monitor" --auto --primary --mode 1920x1080 --right-of "$laptop"
 
