@@ -12,7 +12,7 @@ if [ $monitor_connection = 'connected' ]; then
     xrandr --output "$monitor" --auto --primary --mode 1920x1080 --right-of "$laptop"
 
     # for a projector (mirror)
-    # xrandr --output "$laptop" --mode 1366x768
+    # xrandr --output "$laptop" --auto --mode 1024x768
     # xrandr --output "$monitor" --auto --mode 1024x768 --same-as "$laptop" 
 
     # for a projector (two outputs)
