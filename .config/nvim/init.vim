@@ -11,6 +11,7 @@ set nobackup
 set number relativenumber
 set incsearch
 
+set shiftwidth=4
 set tabstop=4
 set expandtab
 set autoindent
