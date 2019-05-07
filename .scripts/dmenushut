@@ -2,9 +2,9 @@
 
 # Stupidity of this script should be ignored till I'd come up with better solution
 
-action=$(echo "Shutdown\nReboot\nHibernate" | dmenu -i -l 3)
+action=$(printf "Shutdown\nReboot\nHibernate" | dmenu -i -l 3)
 
-[ -z $action ] && exit
+[ -z "$action" ] && exit
 
 case $action in
     Shutdown)

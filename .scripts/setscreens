@@ -7,7 +7,7 @@ monitor_connection=$(xrandr | awk '/DP2/ {print $2}')
 # monitor="VGA1"
 # monitor_connection=$(xrandr | awk '/VGA1/ {print $2}')
 
-if [ $monitor_connection = 'connected' ]; then
+if [ "$monitor_connection" = 'connected' ]; then
     xrandr --output "$laptop" --auto
     xrandr --output "$monitor" --auto --primary --mode 1920x1080 --right-of "$laptop"
 
@@ -19,12 +19,13 @@ if [ $monitor_connection = 'connected' ]; then
     # xrandr --output "$laptop" --auto
     # xrandr --output "$monitor" --auto --mode 1024x768 --right-of "$laptop" 
 else
+    xrandr --output "$monitor" --off
     xrandr --output "$laptop" --auto --primary --mode 1366x768
 fi
 
-# set a wallpaper just in case it doesn't show properly
+# set a wallpaper
 ~/.fehbg
 
-# set keyboard layout just in case
+# set keyboard layout
 setxkbmap -option caps:escape
 setxkbmap pl
