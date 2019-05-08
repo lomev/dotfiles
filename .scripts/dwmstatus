@@ -1,48 +1,49 @@
-#!/bin/bash
+#!/bin/sh
 
 net() {
     net=$(cat /sys/class/net/wlp3s0/operstate)
-    if [ $net == "up" ]; then
-	echo "NET ON"
-    elif [ $net == "down" ]; then
-	echo "NET OFF"
-    fi
+
+    [ "$net" = "up" ] && printf "NET ON"
+    [ "$net" = "down" ] && printf "NET OFF"
 }
 
 music() {
     track=$(mpc current)
-    [[ -n $track ]] && echo "$track ·"
+    [ -n "$track" ] && printf "%s" "$track ·"
 }
 
 mem() {
     mem=$(free -m | awk '/^Mem:/ {print $3}')
-    echo "MEM $mem"
+    printf "MEM %s" "$mem"
 }
 
 vol() {
     vol=$(amixer get Master | awk -F'[][]' 'END{print $2}')
-    echo "VOL $vol"
+    printf "VOL %s" "$vol"
 }
 
 bat() {
     bat=$(cat /sys/class/power_supply/BAT0/capacity)
-    echo "BAT $bat"
+    printf "BAT %s" "$bat%"
 }
 
 cpu() {
-    read cpu a b c previdle rest < /proc/stat
+    read -r cpu a b c previdle rest < /proc/stat
     prevtotal=$((a+b+c+previdle))
     sleep 0.5
-    read cpu a b c idle rest < /proc/stat
+    read -r cpu a b c idle rest < /proc/stat
     total=$((a+b+c+idle))
     cpu=$(( 100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
 
-    echo "CPU $cpu"
+    printf "CPU %s" "$cpu"
 }
 
 tme() {
     tme=$(date "+%R")
-    echo "$tme"
+    printf "%s" "$tme"
 }
 
-xsetroot -name "$(music) $(cpu)% · $(mem)MiB · $(bat)% · $(vol) · $(net) · $(tme) "
+while true; do
+    xsetroot -name "$(music) $(cpu) · $(mem) · $(bat) · $(vol) · $(net) · $(tme)"
+    sleep 1
+done

@@ -19,13 +19,8 @@ if [ "$monitor_connection" = 'connected' ]; then
     # xrandr --output "$laptop" --auto
     # xrandr --output "$monitor" --auto --mode 1024x768 --right-of "$laptop" 
 else
-    xrandr --output "$monitor" --off
     xrandr --output "$laptop" --auto --primary --mode 1366x768
 fi
 
-# set a wallpaper
-~/.fehbg
-
 # set keyboard layout
-setxkbmap -option caps:escape
-setxkbmap pl
+setxkbmap pl -option caps:swapescape
