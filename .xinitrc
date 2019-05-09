@@ -2,7 +2,10 @@
 ~/.scripts/setscreens
 
 # Statubar
-~/.scripts/dwmstatus &
+while true; do
+    ~/.scripts/dwmstatus &
+    sleep 1
+done &
 
 # Start WM
 exec dwm >/dev/null

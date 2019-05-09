@@ -43,7 +43,4 @@ tme() {
     printf "%s" "$tme"
 }
 
-while true; do
-    xsetroot -name "$(music) $(cpu) · $(mem) · $(bat) · $(vol) · $(net) · $(tme)"
-    sleep 1
-done
+xsetroot -name "$(music) $(cpu) · $(mem) · $(bat) · $(vol) · $(net) · $(tme)"

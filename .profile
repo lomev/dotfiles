@@ -4,5 +4,8 @@ export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
 
-[ "$(tty)" = "/dev/tty1/" ] && pgrep -x dwm || exec startx
+if [ "$(tty)" = "/dev/tty1/" ]; then
+    pgrep -x dwm || exec startx
+fi
+
 pgrep -x ssh-agent || eval "$(ssh-agent)"
