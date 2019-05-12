@@ -35,7 +35,7 @@ cpu() {
     total=$((a+b+c+idle))
     cpu=$(( 100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
 
-    printf "CPU %s" "$cpu"
+    printf "CPU %s" "$cpu%"
 }
 
 tme() {
@@ -43,4 +43,4 @@ tme() {
     printf "%s" "$tme"
 }
 
-xsetroot -name "$(music) $(cpu) · $(mem) · $(bat) · $(vol) · $(net) · $(tme)"
+xsetroot -name "$(music) $(cpu) · $(mem)M · $(bat) · $(vol) · $(net) · $(tme)"

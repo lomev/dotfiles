@@ -4,7 +4,7 @@ export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
 
-if [ "$(tty1)" = "/dev/tty1/" ]; then
+if [ "$(tty)" = "/dev/tty1/" ]; then
     pgrep -x dwm || exec startx
 fi
 
