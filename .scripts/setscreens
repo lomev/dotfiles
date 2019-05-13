@@ -2,7 +2,7 @@
 
 laptop="LVDS-1"
 monitor="DP-2"
-monitor_connection=$(xrandr | awk '/DP-22/ {print $2}')
+monitor_connection=$(xrandr | awk '/DP-2/ {print $2}')
 
 # monitor="VGA1"
 # monitor_connection=$(xrandr | awk '/VGA-1/ {print $2}')
