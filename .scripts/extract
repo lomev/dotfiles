@@ -17,6 +17,6 @@ if [ -f $1 ]; then
         *.Z)       uncompress $1 ;;
         *.7z)      7z x $1       ;;
         *.xz)      unxz $1       ;;
-        *)         echo "This file can't be unpacked." ;;
+        *)         echo "This file can't be extracted." ;;
     esac
 fi
