@@ -1,11 +1,11 @@
 #!/bin/sh
 
-laptop="LVDS1"
-monitor="DP2"
-monitor_connection=$(xrandr | awk '/DP2/ {print $2}')
+laptop="LVDS-1"
+monitor="DP-2"
+monitor_connection=$(xrandr | awk '/DP-22/ {print $2}')
 
 # monitor="VGA1"
-# monitor_connection=$(xrandr | awk '/VGA1/ {print $2}')
+# monitor_connection=$(xrandr | awk '/VGA-1/ {print $2}')
 
 if [ "$monitor_connection" = 'connected' ]; then
     xrandr --output "$laptop" --auto
