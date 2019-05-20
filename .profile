@@ -7,5 +7,3 @@ export READER="zathura"
 if [ "$(tty)" = "/dev/tty1/" ]; then
     pgrep -x dwm || exec startx
 fi
-
-pgrep -x ssh-agent || eval "$(ssh-agent)"

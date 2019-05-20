@@ -7,5 +7,7 @@ while true; do
     sleep 1
 done &
 
+dunst &
+
 # Start WM
 exec dwm >/dev/null
