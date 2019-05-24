@@ -7,7 +7,10 @@ while true; do
     sleep 1
 done &
 
+# Start dunst
 dunst &
 
 # Start WM
-exec dwm >/dev/null
+while true; do
+    ssh-agent dwm >/dev/null
+done
