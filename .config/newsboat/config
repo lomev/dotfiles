@@ -1,6 +1,3 @@
-auto-reload yes
-
-# vi-like keybindings
 bind-key j down
 bind-key k up
 bind-key l open
@@ -10,5 +7,15 @@ bind-key u pageup
 bind-key G end
 bind-key g home
 bind-key U show-urls
+
+color listnormal cyan default
+color listfocus black yellow standout bold
+color listnormal_unread blue default
+color listfocus_unread yellow default bold
+color info red black bold
+color article cyan default
+
+show-keymap-hint no
+swap-title-and-hints yes
 
 macro m set browser "mpv %u"; open-in-browser ; set browser "w3m %u"
