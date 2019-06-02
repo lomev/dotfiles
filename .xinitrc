@@ -10,7 +10,8 @@ done &
 # Start dunst
 dunst &
 
+# Set wallpaper
+~/.wallpaper
+
 # Start WM
-while true; do
-    ssh-agent dwm >/dev/null
-done
+exec dwm >/dev/null
