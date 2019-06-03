@@ -10,6 +10,9 @@ done &
 # Start dunst
 dunst &
 
+# Hide cursor after some time
+unclutter &
+
 # Set wallpaper
 ~/.wallpaper
 
