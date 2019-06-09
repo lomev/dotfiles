@@ -1,0 +1,4 @@
+#!/bin/sh
+
+[ -n "$1" ] && cp "$1" ~/.config/wallpaper.png
+xwallpaper --stretch ~/.config/wallpaper.png
