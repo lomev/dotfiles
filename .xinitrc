@@ -1,20 +1,5 @@
-# Set screens properly if more than one is connected
-~/.scripts/setscreens
-
-# Statubar
-while true; do
-    ~/.scripts/dwmstatus &
-    sleep 1
-done &
-
-# Start dunst
-dunst &
-
-# Hide cursor after some time
-unclutter &
-
-# Set wallpaper
-~/.wallpaper
-
-# Start WM
-exec dwm >/dev/null
+# Here is a script which start dwm and other programs
+# It's made this way, so dwm can be reloaded (by pressing Mod+F5)
+# And X11 can be killed by typing "killall xinit" (by pressing Mod+F6)
+# This won't be possible without having external script
+exec $HOME/.scripts/dwmstart
