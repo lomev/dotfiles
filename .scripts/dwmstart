@@ -6,9 +6,10 @@ dunst &
 unclutter &
 xset r rate 300 50
 setbg
+setxkbmap pl -option caps:swapescape
 
 # Start dwm in a loop, so it can be easily restarted (Mod+F5)
-# And also start ssh-agent in the process
+# And also start ssh-agent as well
 while true; do
     # No error outputs
     ssh-agent dwm >/dev/null 
