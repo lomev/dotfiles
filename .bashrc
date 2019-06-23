@@ -7,6 +7,7 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\]\[$(tput setaf 3)\]\u\[$(tput set
 # Some aliases
 alias n='nnn'
 alias v='vim'
+alias ytw='youtube-viewer'
 
 # Some colors for basic operations 
 alias ls='ls -hN --color=auto --group-directories-first'
