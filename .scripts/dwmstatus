@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Not used anymore, but let it still be here
+# I use slstatus now
+
 net() {
     net=$(cat /sys/class/net/wlp3s0/operstate)
 
