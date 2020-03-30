@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Script used by acpid to detect whether laptop is (un)connected to a dock
+
+export DESKTOP=:0.0
+
+laptop="LVDS-1" # laptop's screen
+dmonitor="DP-2" # dock's monitor
+
+case $1 in
+    dock)
+        xrandr --output "$laptop" --auto --primary \
+               --output "$dmonitor" --auto --mode 1920x1080 --right-of "$laptop"
+
+        # Restart wallpaper and keybinds after docking
+        remaps && setbg ;;
+    undock)     
+        xrandr --output "$laptop" --auto --primary --mode 1366x768 \
+               --output "$dmonitor" --off ;;
+esac
