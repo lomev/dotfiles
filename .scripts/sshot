@@ -1,37 +1,44 @@
 #!/bin/sh
 
-# Simple script for taking screenshots with different settings using maim
-# Possible usage of this script:
-# sshot (no arguments) - sshot_default
-# sshot clip - sshot_clip
-# sshot win - sshot_win
+# Simple script for taking screenshots with different settings using maim (entire screen, selected frame, currently active window)
+# After taking a screenshot, there is a prompt asking whether screenshot should be saved and renamed
 
-# Takes screenshot of entire screen, saves it and then copy it to clipboard
-sshot_default() {
-    maim ~/pictures/screenshots/"$(date +%s)".png | xclip -selection clipboard -t image/png
+DIR="$HOME/pictures/screenshots/" # screenshots' directory
+DATE="$(date +%s)" # present date to be used as a possible filename (if not changed by the user)
+
+save_to_file() {
+    xclip -selection clipboard -target image/png -out > /tmp/"$DATE.png"
+
+    # dmenu prompt asking user whether screenshot should be save or not
+    toSave=$(printf "Yes\\nNo" | dmenu -i -p "Do you want to save screenshot?")
+
+    if [ "$toSave" = "Yes" ]; then
+        changeFilename=$(printf "Yes\\nNo" | dmenu -i -p "Change filename?")
+
+        [ "$changeFilename" = "No" ] && mv /tmp/"$DATE.png" "$DIR"
+        if [ "$changeFilename" = "Yes" ]; then
+            newFilename=$(printf "" | dmenu -i -p "Type new filename:")
+            if [ "$newFilename" = "" ]; then 
+                mv /tmp/"$DATE.png" "$DIR" 
+            else
+                mv /tmp/"$DATE.png" "$DIR/$newFilename.png"
+            fi
+        fi
+    fi
 }
-
-# Takes screenshot of selected area to be easily posted in mumble etc.
-sshot_area() {
-    maim -s ~/pictures/screenshots/"$(date +%s)".png | xclip -selection clipbaord -t image/png
-}
-
-# Takes screenshot of currently active window
-sshot_win() {
-    maim -i "$(xdotool getactivewindow)" ~/pictures/screenshots/"$(date +%s)".png | xclip -selection clipboard -t image/png
-}
-
-[ $# -gt 1 ] && exit
 
 if [ $# = 0 ]; then
-    sshot_default
+    # Takes screenshot of selected area
+    maim -s | xclip -selection clipboard -t image/png && save_to_file || exit 1
 else
     case $1 in
-        area)
-            sshot_area
+        full)
+            # Takes screenshot of the entire screen, saves it and then copy it to clipboard
+            maim | xclip -selection clipboard -t image/png && save_to_file
             ;;
         win)
-            sshot_win
+            # Takes screenshot of currently active window
+            maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png && save_to_file
             ;;
         *)
             echo 'Invalid argument.'
