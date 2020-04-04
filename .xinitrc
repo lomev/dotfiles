@@ -8,8 +8,8 @@ dmonitor_connection=$(xrandr -q | awk '/DP2/ {print $2}')
 
 # Check if laptop is conneted to a dock
 [ "$dmonitor_connection" = connected ] && 
-    xrandr --output "$laptop" --auto --primary \
-           --output "$dmonitor" --auto --mode 1920x1080 --right-of "$laptop"
+    xrandr --output "$laptop" --auto \
+           --output "$dmonitor" --auto --primary --mode 1920x1080 --right-of "$laptop"
 
 remaps # set keybinds
 setbg # set wallpaper

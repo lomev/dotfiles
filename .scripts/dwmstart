@@ -1,15 +1,6 @@
 #!/bin/sh
 
-# Start some useful programs and scripts
-dwmstatus &
-dunst &
-unclutter &
-xset r rate 300 50
-setbg
-setxkbmap pl -option caps:swapescape
-
-# Start dwm in a loop, so it can be easily restarted (Mod+F5)
-# And also start ssh-agent as well
+# Start dwm in a loop, so it can be easily restarted
 while true; do
     # No error outputs
     ssh-agent dwm >/dev/null 

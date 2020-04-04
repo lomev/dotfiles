@@ -9,8 +9,8 @@ dmonitor="DP-2" # dock's monitor
 
 case $1 in
     dock)
-        xrandr --output "$laptop" --auto --primary \
-               --output "$dmonitor" --auto --mode 1920x1080 --right-of "$laptop"
+        xrandr --output "$laptop" --auto \
+               --output "$dmonitor" --auto --primary --mode 1920x1080 --right-of "$laptop"
 
         # Restart wallpaper and keybinds after docking
         remaps && setbg ;;

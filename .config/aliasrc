@@ -1,0 +1,31 @@
+# Abbreviate too long useful commands
+alias \
+    ytw='youtube-viewer' \
+    yt='youtube-dl --add-metadata -i' \
+    yta='yt -x -f bestaudio/best' \
+    trcli='transmission-remote-cli' \
+    trstart='transmission-daemon' \
+    sdn='sudo shutdown -h now' \
+    bat='cat /sys/class/power_supply/BAT?/capacity'
+    wiki='vim ~/documents/wiki/index.md'
+
+# Use addiotonal info and warnings when using these commands 
+alias \ 
+    cp='cp -iv' \
+    mv='mv -iv' \
+    rm='rm -vi' \
+    mkdir='mkdir -pv'
+
+# Package manager aliases
+alias \ 
+    xi='sudo xbps-install' \
+    xr='sudo xbps-remove -R' \
+    xq='sudo-query'
+
+# Some colors for basic operations 
+alias \ 
+    ls='ls -hN --color=auto --group-directories-first' \
+    grep='grep --color=auto' \
+    diff='diff --color-auto'
+
+
