@@ -12,16 +12,16 @@ dmonitor_connection=$(xrandr -q | awk '/DP2/ {print $2}')
            --output "$dmonitor" --auto --primary --mode 1920x1080 --right-of "$laptop"
 
 remaps # set keybinds
-setbg # set wallpaper
+setbg  # set wallpaper
 
 # Start some useful programs and scripts
 xcompmgr &
 slstatus &
 dunst &
-#unclutter &
+unclutter &
 
 # Here is an external script which start dwm in a loop
 # It's made this way, so dwm can be easily reloaded
 # And X11 can be killed by typing "pkill xinit"
-# It wouldnt't be possible without having an external script
+# It wouldn't be possible without having an external script
 exec $HOME/.scripts/dwmstart
