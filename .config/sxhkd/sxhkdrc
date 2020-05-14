@@ -52,8 +52,8 @@ super + shift + f
 super + shift + c
     dwmc killclient
 # set layout
-super + {t,f,m,o}
-    dwmc setlayoutex {0,1,2,3}
+super + {t,f,m,o,c}
+    dwmc setlayoutex {0,1,2,3,4}
 # view all tags
 super + 0
     dwmc viewall
@@ -61,9 +61,9 @@ super + 0
 super + shift + 0
     dwmc tagall
 # view tag; move client to diffrent tag
-super + {_,ctrl +}{_,shift +} {1-9}
-	dwmc {_,toggle}{viewex,tagex} {0-8}
-# change monitor; move client there
+super + {_,ctrl +}{_,shift +} {1-5}
+	dwmc {_,toggle}{viewex,tagex} {0-4}
+# change monitor
 super + {comma, period}
    dwmc focusmon {-,+}1 
 # move client to the other monitor
@@ -77,7 +77,7 @@ super + Home
     dwmc setgaps 0
 # update colorscheme
 super + F5
-    dwmc xrdb
+    xrdb -merge $HOME/.Xresources; dwmc xrdb; 
 # restart dwm
 super + shift + q
     dwmc quit
@@ -85,15 +85,29 @@ super + shift + q
 super + shift + BackSpace
     pkill xinit
 
+# -- dmenu ---
+
+# take a screenshot
+Print
+    dmenu_screenshot
+# mount a partition
+super + F1
+    dmenu_mount
+# umount a partition
+super + F2
+    dmenu_umount
+# power options: shutdown, reboot etc.
+super + F9
+    dmenu_power
+
 # --- misc ---
+
+# restart sxhkd
 super + Escape
 	pkill -USR1 -x sxhkd
 # lockscreen
 super + shift + x
     slock
-# screenshot
-Print
-    sshot
 # change volume
 super + {equal,minus}
     amixer -q set Master {5%+,5%-}
