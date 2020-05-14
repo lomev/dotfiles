@@ -3,21 +3,21 @@
 # Simple script for taking screenshots with different settings using maim (entire screen, selected frame, currently active window)
 # After taking a screenshot, there is a prompt asking whether screenshot should be saved and renamed
 
-DIR="$HOME/pictures/screenshots/" # screenshots' directory
+DIR="$XDG_PICTURES_DIR/screenshots/" # screenshots' directory
 DATE="$(date +%s)" # present date to be used as a possible filename (if not changed by the user)
 
 save_to_file() {
     xclip -selection clipboard -target image/png -out > /tmp/"$DATE.png"
 
     # dmenu prompt asking user whether screenshot should be save or not
-    toSave=$(printf "Yes\\nNo" | dmenu -i -p "Do you want to save screenshot?")
+    toSave=$(echo "Yes\nNo" | dmenu -i -p "save:")
 
     if [ "$toSave" = "Yes" ]; then
-        changeFilename=$(printf "Yes\\nNo" | dmenu -i -p "Change filename?")
+        changeFilename=$(echo "Yes\nNo" | dmenu -i -p "change filename:")
 
         [ "$changeFilename" = "No" ] && mv /tmp/"$DATE.png" "$DIR"
         if [ "$changeFilename" = "Yes" ]; then
-            newFilename=$(printf "" | dmenu -i -p "Type new filename:")
+            newFilename=$(echo "" | dmenu -i -p "type filename:")
             if [ "$newFilename" = "" ]; then 
                 mv /tmp/"$DATE.png" "$DIR" 
             else

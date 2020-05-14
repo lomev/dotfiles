@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# choose one of the scripts
+script=$(find "$HOME"/.scripts | fzf)
+
+# edit the chosen script, otherwise exit
+if [ -n "$script" ]; then
+    vim "$script"
+else 
+    exit 1
+fi

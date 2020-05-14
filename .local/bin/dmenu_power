@@ -1,0 +1,16 @@
+#!/bin/sh
+
+args=" -l 4 -p power:"
+options="shutdown\nreboot\nlogout\nlock
+"
+
+case "$(printf "$options" | dmenu${args})" in
+    shutdown) 
+        sudo poweroff ;;
+    reboot)
+        sudo reboot ;;
+    logout)
+        pkill xinit ;;
+    lock)
+        slock ;;
+esac
