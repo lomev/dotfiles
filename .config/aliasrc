@@ -6,7 +6,7 @@ alias \
     trcli='transmission-remote-cli' \
     trstart='transmission-daemon' \
     sdn='sudo shutdown -h now' \
-    bat='cat /sys/class/power_supply/BAT?/capacity'
+    bat='cat /sys/class/power_supply/BAT?/capacity' \
     wiki='vim ~/documents/wiki/index.md'
 
 # Use addiotonal info and warnings when using these commands 
