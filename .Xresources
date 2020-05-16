@@ -11,12 +11,12 @@
 !*color10: #c3bf9f
 !*color11: #f0dfaf
 
-st.alpha: 0.90
-st.alphaUnfocused: 0.70
+st.alpha: 1.00
+st.alphaUnfocused: 1.00
 
-dwm.normbordercolor: #002f57
-dwm.normbgcolor: #000000
-dwm.normfgcolor: #ffffff
-dwm.selbordercolor: #71a2be
-dwm.selbgcolor: #81a2be
-dwm.selfgcolor: #000000
+dwm.normbordercolor: #363636
+dwm.normbgcolor: #222222
+dwm.normfgcolor: #dddddd
+dwm.selbordercolor: #6e6e6e
+dwm.selbgcolor: #777777
+dwm.selfgcolor: #ffffff

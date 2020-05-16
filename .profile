@@ -1,18 +1,15 @@
 # Add additional direcotories to $PATH
-export PATH="$HOME/.scripts:$HOME/local/bin:$PATH"
-
-# Default WM
-export WM="dwm"
+export PATH="$HOME/local/bin:$PATH"
 
 # Deafault programs
-export EDITOR="vim"
+export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
 export PAGER="less"
-export FILE="lf"
+export FILE="vifm"
 
-# Cleaning-up $HOMR
+# Cleaning-up $HOME
 export INPUTRC="$HOME/.config/inputrc"
 export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
