@@ -13,19 +13,17 @@ alias \
 alias \ 
     cp='cp -iv' \
     mv='mv -iv' \
-    rm='rm -vi' \
+    rm='rm -iv' \
     mkdir='mkdir -pv'
 
 # Package manager aliases
 alias \ 
     xi='sudo xbps-install' \
     xr='sudo xbps-remove -R' \
-    xq='sudo-query'
+    xq='sudo xbps-query'
 
 # Some colors for basic operations 
 alias \ 
     ls='ls -hN --color=auto --group-directories-first' \
     grep='grep --color=auto' \
     diff='diff --color-auto'
-
-

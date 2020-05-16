@@ -13,7 +13,6 @@ set clipboard+=unnamedplus
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/goyo.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
@@ -48,7 +47,7 @@ map <C-l> <C-W>l
 map <C-h> <C-W>h
 map <C-g> :Goyo<CR>
 
-" Nerd treeq
+" Nerd tree
 map <C-f> :NERDTreeToggle<CR>
 
 " vim-instant-markdown
