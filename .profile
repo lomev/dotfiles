@@ -1,5 +1,5 @@
 # Add additional direcotories to $PATH
-export PATH="$HOME/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Deafault programs
 export EDITOR="nvim"

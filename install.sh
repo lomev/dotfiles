@@ -3,7 +3,7 @@
 PATH=$(pwd)
 
 # make necessery directories
-mkdir -pi "$HOME/.config/bspwm" "$HOME/.config/dunst" "$HOME/.config/gtk-2.0" "$HOME/.config/gtk-3.0" "$HOME/.config/mpd" "$HOME/.config/ncmpcpp" "$HOME/.config/newsboat" "$HOME/.config/nvim" "$HOME/.config/sxhkd" "$HOME/.config/sxiv" "$HOME/.config/zathura" "$HOME/.local/share/applications"
+mkdir -pv "$HOME/.config/bspwm" "$HOME/.config/dunst" "$HOME/.config/gtk-2.0" "$HOME/.config/gtk-3.0" "$HOME/.config/mpd" "$HOME/.config/ncmpcpp" "$HOME/.config/newsboat" "$HOME/.config/nvim" "$HOME/.config/sxhkd" "$HOME/.config/sxiv" "$HOME/.config/zathura" "$HOME/.local/share/applications" "$HOME/.local/bin"
 
 # link dotfiles
 ln -sf "$PATH/.profile" "$HOME/.profile" \
@@ -26,5 +26,5 @@ ln -sf "$PATH/.config/nvim/init.vim" "$HOME/.config/nvim" \
 ln -sf "$PATH/.config/sxhkd/init.vim" "$HOME/.config/sxhkd" \
 ln -sf "$PATH/.config/sxiv/exec/key-handler" "$HOME/.config/sxiv/exec" \
 ln -sf "$PATH/.config/zathura/zathurarc" "$HOME/.config/zathura"
-ln -sf "$PATH/.local/bin/" "$HOME/.local/bin/" \
 ln -sf "$PATH/.local/bin/share/applications/" "$HOME/.local/share/applications/"
+ln -sf "$PATH/.local/bin/" "$HOME/.local/bin/" \
