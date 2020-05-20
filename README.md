@@ -1,4 +1,4 @@
-[#](#) Installation
+# Installation
 
 ```
 chmod +x install.sh
